@@ -1,0 +1,1 @@
+This project welcomes contributions and suggestions. Most of the code in this book is written by Mustafa and Chris, but we welcome contributions from anyone who wants to help out. If you have a suggestion for a new chapter, a bug fix, or a new feature, please feel free to open an issue or pull request.
