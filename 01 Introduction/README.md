@@ -1,3 +1,8 @@
+---
+title: "Lesson 1: Hello Python"
+layout: default
+---
+
 # Hello Python
 
 So, you want to learn Python? Great, then you've come to the right place. In this book, we will take you from a complete beginner to someone who's able to build several different apps in many different areas.
