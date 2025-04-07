@@ -29,6 +29,8 @@ class Arcship:
         self.health = 100
         self.speed = 0  # Reset speed to 0
 
+
+
     def update(self):
         self.y += self.speed  # Update the arcship position based on speed
 
@@ -200,6 +202,15 @@ class Game:
     def if_game_won(self):
         return self.meteors_destroyed >= self.meteors_to_destroy
 
+    def show_splash_screen(self):
+        # Show splash screen from assets/cover.jpeg
+        splash_image = pygame.image.load("assets/cover.jpeg")
+        splash_image = pygame.transform.scale(splash_image, (800, 600))  # Scale the image to fit the screen
+        self.screen.blit(splash_image, (0, 0))
+       
+        pygame.display.flip()
+        pygame.time.wait(4000)
+
     def show_menu(self):
         menu_running = True
         font = pygame.font.Font(None, 74)
@@ -256,6 +267,7 @@ class Game:
 
     def run(self):
         print("Game started")
+        self.show_splash_screen()  # Show the splash screen
         self.show_menu()  # Show the menu before starting the game
 
         running = True
