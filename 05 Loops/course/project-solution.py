@@ -60,6 +60,11 @@ print(spaceship_art)
 print(f"You're in room: \033[1m{current_room['name']}\033[0m")
 print(f"\033[93m\033[3m{current_room['description']}\033[0m")
 print(f"You see a \033[92m{current_room['item']}\033[0m here.")
+for idx, room in enumerate(rooms):
+    if idx == current_room_index:
+        print(f" * \033[1m{room['name']}\033[0m")
+    else:
+        print(f"   {room['name']}")
 
 while health > 0:
     print("What do you want to do? Type 'help' for options")
@@ -69,12 +74,24 @@ while health > 0:
     elif command == "look":
         print(f"You're in \033[1m{current_room['name']}\033[0m\n\033[93m\033[3m{current_room['description']}\033[0m")
         print(f"You see a \033[92m{current_room['item']}\033[0m here.")
+        for idx, room in enumerate(rooms):
+            if idx == current_room_index:
+                print(f" * \033[1m{room['name']}\033[0m")
+            else:
+                print(f"   {room['name']}")
+
     elif command == "move":
         current_room_index = (current_room_index + 1) % len(rooms)
         current_room = rooms[current_room_index]
         print(f"You moved to \033[1m{current_room['name']}\033[0m")
         print(f"\033[93m\033[3m{current_room['description']}\033[0m")
         print(f"You see a \033[92m{current_room['item']}\033[0m here.")
+        print("\nRooms on the ship:")
+        for idx, room in enumerate(rooms):
+            if idx == current_room_index:
+                print(f" * \033[1m{room['name']}\033[0m")
+            else:
+                print(f"   {room['name']}")
     elif command == "quit":
         print("\033[92mThank you for playing!\033[0m")
         break
