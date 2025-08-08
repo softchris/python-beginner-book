@@ -1,5 +1,17 @@
 import pygame
 import random
+import os
+
+# Get the directory where this script is located
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+def get_asset_path(asset_name):
+    """
+    Helper function to construct the correct path to game assets.
+    This ensures that assets are loaded relative to the script's location,
+    making the game work regardless of where it's run from.
+    """
+    return os.path.join(SCRIPT_DIR, "assets", asset_name)
 
 class Arcship:
     def __init__(self, x, y, screen):
@@ -7,7 +19,7 @@ class Arcship:
         self.rect = pygame.Rect(x, y, 200, 200)  # x, y, width, height
         self.health = 100  # Health of the arcship
         self.speed = 0  # Speed of the arcship
-        self.arcship_image = pygame.image.load("assets/arcship.png")
+        self.arcship_image = pygame.image.load(get_asset_path("arcship.png"))
         self.arcship_image = pygame.transform.scale(self.arcship_image, (200, 200))
 
     def decrease_health(self):
@@ -39,7 +51,7 @@ class Missile:
         self.screen = screen
         self.rect = pygame.Rect(x, y, 5, 10)  # x, y, width, height
         self.speed = -1.5  # Move up the screen
-        self.missile_image = pygame.image.load("assets/missile.png")
+        self.missile_image = pygame.image.load(get_asset_path("missile.png"))
         self.missile_image = pygame.transform.scale(self.missile_image, (5, 10))
 
     def update(self):
@@ -52,7 +64,7 @@ class Missile:
 class PlayerShip:
     def __init__(self, x, y, screen):
         self.screen = screen
-        self.player_ship_image = pygame.image.load("assets/player.png")
+        self.player_ship_image = pygame.image.load(get_asset_path("player.png"))
         self.player_ship_image = pygame.transform.scale(self.player_ship_image, (50, 50))
         self.rect = pygame.Rect(x, y, 50, 50)  # x, y, width, height
         self.health = 100  # Health of the player ship
@@ -83,7 +95,7 @@ class Meteor:
         self.screen = screen
         self.rect = pygame.Rect(x, y, 50, 50)  # x, y, width, height
         self.speed = 3  # Speed of the meteor
-        self.meteor_image = pygame.image.load("assets/meteor_1.png")
+        self.meteor_image = pygame.image.load(get_asset_path("meteor_1.png"))
         self.meteor_image = pygame.transform.scale(self.meteor_image, (50, 50))
 
     def update(self):
@@ -120,15 +132,15 @@ class Game:
         # Load sound
         print("Loading sound")
         pygame.mixer.init()
-        pygame.mixer.music.load("assets/background-sound.mp3")
+        pygame.mixer.music.load(get_asset_path("background-sound.mp3"))
         pygame.mixer.music.play(-1)  # Play the music in a loop
 
         # load sound effect
-        self.missile_sound = pygame.mixer.Sound("assets/missile.ogg")
-        self.explosion_sound = pygame.mixer.Sound("assets/explosion.ogg")
+        self.missile_sound = pygame.mixer.Sound(get_asset_path("missile.ogg"))
+        self.explosion_sound = pygame.mixer.Sound(get_asset_path("explosion.ogg"))
 
         # Load background image
-        self.background_image = pygame.image.load("assets/background.png")
+        self.background_image = pygame.image.load(get_asset_path("background.png"))
         self.background_image = pygame.transform.scale(self.background_image, (800, 600))  # Scale the background image to fit the screen
 
         self.meteors_destroyed = 0 
@@ -204,7 +216,7 @@ class Game:
 
     def show_splash_screen(self):
         # Show splash screen from assets/cover.jpeg
-        splash_image = pygame.image.load("assets/cover.jpeg")
+        splash_image = pygame.image.load(get_asset_path("cover.jpeg"))
         splash_image = pygame.transform.scale(splash_image, (800, 600))  # Scale the image to fit the screen
         self.screen.blit(splash_image, (0, 0))
        
