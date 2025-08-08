@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu Page</title>
+        <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="menu">
+        <a href="#" onclick="showContent('home')">Home</a>
+        <a href="#" onclick="showContent('about')">About</a>
+        <a href="#" onclick="showContent('contact')">Contact</a>
+        <a href="#" onclick="showContent('product')">Product</a>
+        <a href="#" class="login-link" onclick="showContent('login')">Login</a>
+        <a href="#" class="logout-link" style="display: none;" onclick="logout('logout')">Logout</a>
+    </nav>
+    <div class="content" id="content-area">
+        <h2>Welcome!</h2>
+        <p>This is the home page.</p>
+    </div>
+    <div class="login-area" style="display: none;">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <div class="input">
+              <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input">
+            <label for="password">Password:</label>
+              <input type="password" id="password" name="password" required>
+            </div>
+            <button onclick="handleLogin(event)" type="submit">Login</button>
+        </form>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

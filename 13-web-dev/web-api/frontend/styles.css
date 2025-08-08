@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.menu {
+    background: #333;
+    color: #fff;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 20px;
+    line-height: 50px;
+    transition: background 0.2s;
+}
+.menu a:hover {
+    background: #444;
+}
+.content {
+    padding: 30px;
+}
+
+
+.login-area {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.input {
+    margin-bottom: 15px;
+}
+
+.login-area input {
+    width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
